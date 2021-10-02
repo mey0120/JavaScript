@@ -1,0 +1,13 @@
+#back_to_top{
+  position: fixed;
+  bottom: 0;
+  display: block;
+  width: 100px;
+  height: 20px;
+  background: pink;
+  opacity: 0;
+}
+#back_to_top.visible{
+  opacity: 1;
+}
+div {padding: 500px 0;}

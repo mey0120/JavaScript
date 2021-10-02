@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <h1 style="color: aquamarine;">Basic</h1>
+  <div>
+    <h3>이벤트</h3>
+    <button class="btn_1">click</button>
+    <p>btn_1.addEventListener('click', function(){
+      btn_1.style.color = 'red'
+      });</p>
+    <p>
+      <button class="btn_2">mouseenter, mouseleave </button>
+      <p>btn_2.addEventListener('mouseenter', function () {
+        btn_2.style.display='none'
+        })
+        <br>
+        btn_2.addEventListener('mouseleave', function () {
+        btn_2.style.display='block'
+        })</p>
+      <button class="btn_3">mouseover</button>
+      <p>btn_3.addEventListener('mouseover', function () {
+        btn_3.style.borderStyle='none'
+        })
+        })</p>
+      <input class="btn_4">input 에사용 : change </input>
+      <p>btn_4.addEventListener('change',function () {
+        btn_4.style.color = 'red'
+        })</p>
+
+  </div>
+
+  <div>
+    <a href="" id="back_to_top">Top 버튼 </a>
+  </div>
+  <script>
+    //이벤트
+    const btn_1 = document.querySelector('.btn_1');
+
+    btn_1.addEventListener('click', function () {
+      btn_1.style.color = 'red'
+    });
+
+    const btn_2 = document.querySelector('.btn_2');
+
+    btn_2.addEventListener('mouseenter', function () {
+      btn_2.style.display = 'none'
+    })
+    btn_2.addEventListener('mouseleave', function () {
+      btn_2.style.display = 'block'
+    })
+
+    const btn_3 = document.querySelector('.btn_3');
+
+    btn_3.addEventListener('mouseover', function () {
+      btn_3.style.borderStyle = 'none'
+    })
+
+    const btn_4 = document.querySelector('.btn_4');
+
+    btn_4.addEventListener('change', function () {
+      btn_4.style.color = 'red'
+    })
+
+    //top 버튼 만들기
+
+    const topBtn = document.querySelector('#back_to_top')
+    const docElem = document.documentElement
+    //document.documentElement : html 문서 전체
+    var offset
+    var scrollPos
+    var docHeight
+
+    // 요소.scrollHeight : 요소에 들어있는 컨텐츠의 전체 높이.  패딩과 테두리가 포함 마진은 제외 
+    docHeight = docElem.scrollHeight;
+    console.log(docHeight);
+    // 요소.scrollHeight : 요소의 높이. 패딩, 스크롤 바, 테두리(Border)가 포함  마진은 제외 
+    docHeight = docElem.offsetHeight;
+    console.log(docHeight);
+    // 요소.scrollTop : 브라우저 상단에서 현재 스크롤까지 이동한 값     
+    scrollPos = docElem.scrollTop;
+    console.log(scrollPos);
+
+    // offset 에 높이 를 4로 나눈 값을 지정 
+    if (docHeight !== 0) {
+      offset = docHeight / 4;
+    }
+    //offset 까지 스크롤되면 클래스명을 붙여서 보이게 함 
+    window.addEventListener('scroll', function () {
+      scrollPos = docElem.scrollTop;
+      console.log(scrollPos);
+
+      if (scrollPos > offset) {
+        // 요소.className = '클래스 명' : 클래스 명이 없다면 추가 있으면 교체 
+        topBtn.className = 'visible';
+      } else {
+        topBtn.className = '';
+      }
+      // if문 축약형 : topBtn.className = (scrollPos > offset) ? 'visible' : '';
+    })
+
+    // a, submit 태그는 누르게 되면 href 를 통해 이동하거나 창이 새로고침하여 실행됨 preventDefault 를 통해 이러한 동작을 막아줄 수 있다
+    topBtn.addEventListener('click',function (ev) {
+      //topBtn 클릭해도 올라가지 않음 
+      ev.preventDefault();
+      //docElem.scrollTop 양을 조절해서 올라가게함 
+      // docElem.scrollTop = 0;
+      scrollToTop();
+      function scrollToTop() {
+        //일정시간 마다 할일 : setInterval(할일,시간 1000 =1초) : 
+        var scrollInterval = setInterval(function () {
+          if(scrollPos !=0){
+            //window.scrollBy(0,-55) : 스크롤값을 바꿈 (x,y값)
+            window.scrollBy(0,-55);
+          }else{
+            //clearInterval : setInterval 반복을 멈춤 
+            clearInterval(scrollInterval);
+          }
+        },15);
+     
+      } 
+    })
+  </script>
+
+</body>
+
+</html>
