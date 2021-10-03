@@ -13,31 +13,14 @@
   <h1 style="color: aquamarine;">Basic</h1>
   <div>
     <h3>이벤트</h3>
-    <button class="btn_1">click</button>
-    <p>btn_1.addEventListener('click', function(){
-      btn_1.style.color = 'red'
-      });</p>
-    <p>
-      <button class="btn_2">mouseenter, mouseleave </button>
-      <p>btn_2.addEventListener('mouseenter', function () {
-        btn_2.style.display='none'
-        })
-        <br>
-        btn_2.addEventListener('mouseleave', function () {
-        btn_2.style.display='block'
-        })</p>
-      <button class="btn_3">mouseover</button>
-      <p>btn_3.addEventListener('mouseover', function () {
-        btn_3.style.borderStyle='none'
-        })
-        })</p>
-      <input class="btn_4">input 에사용 : change </input>
-      <p>btn_4.addEventListener('change',function () {
-        btn_4.style.color = 'red'
-        })</p>
+    <button class="btn_1">click</button> <br>
+    <button class="btn_2">mouseenter, mouseleave </button> <br>
+    <button class="btn_3">mouseover</button> <br>
+    <input class="btn_4">input 에사용 : change </input>
 
   </div>
 
+  <h3>Top 버튼</h3>
   <div>
     <a href="" id="back_to_top">Top 버튼 </a>
   </div>
@@ -61,7 +44,7 @@
     const btn_3 = document.querySelector('.btn_3');
 
     btn_3.addEventListener('mouseover', function () {
-      btn_3.style.borderStyle = 'none'
+      btn_3.style.backgroundColor = 'skyblue'
     })
 
     const btn_4 = document.querySelector('.btn_4');
@@ -108,26 +91,28 @@
     })
 
     // a, submit 태그는 누르게 되면 href 를 통해 이동하거나 창이 새로고침하여 실행됨 preventDefault 를 통해 이러한 동작을 막아줄 수 있다
-    topBtn.addEventListener('click',function (ev) {
+    topBtn.addEventListener('click', function (ev) {
       //topBtn 클릭해도 올라가지 않음 
       ev.preventDefault();
       //docElem.scrollTop 양을 조절해서 올라가게함 
       // docElem.scrollTop = 0;
       scrollToTop();
+
       function scrollToTop() {
         //일정시간 마다 할일 : setInterval(할일,시간 1000 =1초) : 
         var scrollInterval = setInterval(function () {
-          if(scrollPos !=0){
+          if (scrollPos != 0) {
             //window.scrollBy(0,-55) : 스크롤값을 바꿈 (x,y값)
-            window.scrollBy(0,-55);
-          }else{
+            window.scrollBy(0, -55);
+          } else {
             //clearInterval : setInterval 반복을 멈춤 
             clearInterval(scrollInterval);
           }
-        },15);
-     
-      } 
+        }, 15);
+      }
     })
+
+    
   </script>
 
 </body>

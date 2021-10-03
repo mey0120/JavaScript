@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide</title>
+  <style>
+    /* 슬라이드 */
+    .container01 {
+      position: relative;
+      width: 80%;
+      overflow: hidden;
+      background: pink;
+      padding: 0;
+      margin: 0 auto;
+    }
+
+    #slider {
+      position: absolute;
+      width: 100%;
+      background: yellowgreen;
+      margin: 0;padding: 0;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      overflow: hidden;
+      background: yellow;
+      margin: 0;padding: 0;
+    }
+      
+    .slide.animated {
+      transition: left .3s ease-in;
+    }
+
+    #prev,
+    #next {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: #000;
+      transition: all .3 ease-in;
+    }
+
+    /* 버튼을 가운데로 모은 상태로 양옆으로 보내주면 일정한 간격을 유지함  */
+    #prev {
+      margin-left: -280px;
+    }
+
+    #next {
+      margin-left: 230px;
+    }
+
+    #prev.disabled,
+    #next.disabled {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 슬라이드 -->
+  <h3>슬라이드</h3>
+  <div class="container01">
+    <ul id="slider">
+      <li class="slide">
+        11111Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi laboriosam corrupti
+        aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet dolorum officia
+        accusantium doloribus.
+      </li>
+      <li class="slide">22222Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi
+        laboriosam corrupti aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet
+        dolorum officia accusantium doloribus.</li>
+      <li class="slide">33333Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi
+        laboriosam corrupti aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet
+        dolorum officia accusantium doloribus.</li>
+      <li class="slide">444444Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi
+        laboriosam corrupti aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet
+        dolorum officia accusantium doloribus.</li>
+      <li class="slide">555555Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi
+        laboriosam corrupti aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet
+        dolorum officia accusantium doloribus.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi laboriosam corrupti
+        aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet dolorum officia
+        accusantium doloribus.
+      </li>
+    </ul>
+    <a href="#" id="prev">prev </a>
+    <a href="#" id="next">next</a>
+  </div>
+
+  <script>
+    // 슬라이드 만들기 
+    let slideWrapper = document.querySelector('.container01');
+    let slideContainer = document.querySelector('#slider');
+    let slides = document.querySelectorAll('.slide');
+    let slideCount = slides.length;
+    let currentIdex = 0; //현재 화면에 보이는 슬라이드번호 
+    let topHeight = 0;
+    let navPrev = document.querySelector('#prev');
+    let navNext = document.querySelector('#next');
+
+    console.log(slideContainer);
+
+    // 슬라이드의 높이를 가져와서 그 높이를 부모의 높이값으로 지정한다 
+    function calculateTallestSlde() {
+      //for(시작;끝;증감){할일} 슬라이드 각각의 높이를 구하는 반복문을 작성. topHeight에 슬라이드 순서대로 높이값을 저장하고 저장된 값을 새로운 값과 비교해 더 높은 값을 할당함 
+      for (i = 0; i < slideCount; i++) {
+        if (slides[i].offsetHeight > topHeight) {
+          topHeight = slides[i].offsetHeight;
+        }
+      }
+      slideWrapper.style.height = topHeight + 'px';
+      slideContainer.style.height = topHeight + 'px';
+    }
+    calculateTallestSlde();
+
+    //슬라이드 가로배열하기 
+    for (i = 0; i < slideCount; i++) {
+      slides[i].style.left = i * 100 + '%';
+    }
+
+    //슬라이드 이동
+    function goToSlide(idx) {
+      slideContainer.style.left = idx * -100 + '%';
+      slideContainer.classList.add('animated');
+      currentIdex = idx;
+
+      // uptadeNav() 버튼사라지게하려면 호출
+   }
+
+
+    //버튼을 클릭하면 슬라이드 이동시키기 한쪽으로만 이동 
+    // navPrev.addEventListener('click', function (ev) {
+    //   ev.preventDefault();
+    //   goToSlide(currentIdex - 1);
+    // });
+    // navNext.addEventListener('click', function (ev) {
+    //   ev.preventDefault();
+    //   goToSlide(currentIdex + 1);
+    // });
+
+    //버튼을 클릭하면 슬라이드 이동시키기 처음과 끝을 연결
+    navPrev.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      if(currentIdex > 0){
+        goToSlide(currentIdex - 1);
+      }else{
+        goToSlide(slideCount -1);
+      }
+    });
+    navNext.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      if(currentIdex < slideCount -1){
+        goToSlide(currentIdex + 1);
+      }else{
+        goToSlide(0);
+      }
+    });
+
+    // 처음과 끝 슬라이드에서 버튼에 클래스 붙여서 사라지게 하는 함수
+    function uptadeNav() {
+      if(currentIdex == 0) {
+        navPrev.classList.add('disabled');
+      }else{
+        navPrev.classList.remove('disabled');
+      }
+      if(currentIdex == slideCount -1) {
+        navNext.classList.add('disabled');
+      }else{
+        navNext.classList.remove('disabled');
+      }
+    }
+
+    //첫번째 슬라이드를 보이게 함수를 호출해서 첫화면에서 prev 버튼이 안보이게 한다
+    goToSlide(0);
+
+  </script>
+
+
+</body>
+
+</html>
