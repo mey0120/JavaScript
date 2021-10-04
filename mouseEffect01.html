@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Effect01</title>
+</head>
+
+<body class="mouse bg">
+  <style>
+    @font-face {
+      font-family: 'NEXONLv1Gothic';
+      font-weight: 300;
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff') format('woff');
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'NEXONLv1Gothic';
+      font-weight: 400;
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      cursor: none;
+    }
+
+    /* mouse */
+    .mouse {
+      background: #222;
+      color: #fff;
+      font-family: 'NEXONLv1Gothic';
+      font-weight: 400;
+    }
+
+    .bg {
+      position: relative;
+      height: 100vh;
+      background-image: url(../assets/img/bg1.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .bg::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(5, 36, 70, 0.9);
+      z-index: -1;
+    }
+
+    /* info */
+    .info {
+      color: #fff;
+      font-family: "NEXONLv1Gothic";
+      padding: 20px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .info.right {
+      left: auto;
+      right: 0px;
+      top: 0px;
+    }
+
+    .info h1 {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.6;
+      border-bottom: 1px dashed #fff;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .info h1 a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .info p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .info li {
+      list-style: none;
+      display: inline;
+    }
+
+    .info li a {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      border: 1px dashed #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      line-height: 21px;
+      text-align: center;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .info li.active a {
+      background: #fff;
+      color: #000;
+    }
+
+    .info.left {
+      top: auto;
+      right: 0px;
+      bottom: 0px;
+    }
+
+    .info.left li {
+      display: block;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* mouseCont */
+    .mouseCont {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'NEXONLv1Gothic';
+      cursor: none;
+    }
+
+    .mouseCont p {
+      font-size: 2.5vw;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .mouseCont p:last-child {
+      font-size: 3vw;
+      font-weight: normal;
+      font-weight: 400;
+    }
+
+    .mouseCont span {
+      font-style: normal;
+      border-bottom: 0.15vw dashed #fff;
+      color: orange;
+    }
+
+    .cursor {
+      position: absolute;
+      left: -100px;
+      top: -100px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      z-index: 9999;
+      background-color: rgba(255, 255, 255, 0.1);
+      user-select: none;
+      pointer-events: none;
+      cursor: none;
+      transition:
+        background-color .2s,
+        border-color .2s,
+        border-radius .2s,
+        transform .6s
+    }
+
+    .cursor.style1 {
+      background-color: rgba(255, 165, 0, 0.4);
+      border-color: orange
+    }
+
+    .cursor.style2 {
+      background-color: rgb(140, 0, 255, 0.4);
+      border-color: rgb(140, 0, 255);
+      transform: rotateY(720deg) scale(2);
+    }
+
+    .cursor.style3 {
+      background-color: rgb(0, 47, 255, 0.4);
+      border-color: rgb(0, 47, 255);
+      transform: scale(1.5) rotate(45deg);
+      border-radius: 10px;
+    }
+
+    .cursor.style4 {
+      background-color: rgb(121, 235, 197, 0.4);
+      border-color: rgb(121, 235, 197);
+      transform: scale(10) rotateY(360deg);
+    }
+
+    .cursor.style5 {
+      background-color: rgb(255, 0, 85, 0.4);
+      border-color: rgb(255, 0, 85);
+      transform: rotateY(720deg) scale(0.1);
+    }
+
+    .cursor.style6 {
+      background-color: rgb(255, 81, 0, 0.4);
+      border-color: rgb(255, 81, 0);
+      transform: scale(1.5) rotate(-720deg);
+      border-radius: 0;
+    }
+  </style>
+
+  <!-- main -->
+  <main id="mouseCont">
+    <div class="cursor"></div>
+
+    <div class="mouseCont">
+      <p>To climb <span>steep</span> hills requires <span>slow</span> pace at <span>first.</span></p>
+      <p><span>험준한</span> 산을 <span>오르기</span> 위해선 먼저 <span>천천히</span> 걸어야
+        한다.</p>
+    </div>
+  </main>
+  <!-- //main -->
+
+  <!-- info -->
+  <div class="info">
+    <h1><a href="index.html">Mouse Effect01 - Javascript</a></h1>
+    <p>마우스 이펙트 - 따라다니기</p>
+  </div>
+
+  <div class="info left">
+    <ul>
+      <li>clientX : <span class="clientX">0</span>px</li>
+      <li>clientY : <span class="clientY">0</span>px</li>
+      <li>offsetX : <span class="offsetX">0</span>px</li>
+      <li>offsetY : <span class="offsetY">0</span>px</li>
+      <li>pageX : <span class="pageX">0</span>px</li>
+      <li>pageY : <span class="pageY">0</span>px</li>
+      <li>screenX : <span class="screenX">0</span>px</li>
+      <li>screenY : <span class="screenY">0</span>px</li>
+    </ul>
+  </div>
+  <!-- //info -->
+  <script>
+    //화면에 위치값 출력
+    window.addEventListener('mousemove', function (ev) {
+      //마우스가 움직일때 위치값을 가져옴
+      console.log(ev);
+      //clientX 부분에ev.clientX 값을 넣어줌 
+      document.querySelector('.clientX').innerHTML = ev.clientX;
+      document.querySelector('.clientY').innerHTML = ev.clientY;
+      document.querySelector('.offsetX').innerHTML = ev.offsetX;
+      document.querySelector('.offsetY').innerHTML = ev.offsetY;
+      document.querySelector('.pageX').innerHTML = ev.pageX;
+      document.querySelector('.pageY').innerHTML = ev.pageY;
+      document.querySelector('.screenX').innerHTML = ev.screenX;
+      document.querySelector('.screenY').innerHTML = ev.screenY;
+    });
+
+    //마우스 움직이기
+    window.addEventListener('mousemove', function (ev) {
+      //가로 세로 50px 이므로 커서의 가운데 오도록 -25
+      // document.querySelector('.cursor').style.left=ev.clientX -25 + 'px';
+      // document.querySelector('.cursor').style.top=ev.clientY -25 + 'px';
+      let x = ev.clientX - 25 + 'px';
+      let y = ev.clientY - 25 + 'px';
+      document.querySelector('.cursor').style.cssText = "left : " + x + ";top:" + y + "";
+
+      //오버 효과
+
+      // document.querySelector('span').addEventListener('mouseenter',function () {
+      //   document.querySelector('.cursor').classList.add('style1');
+      // })
+      // document.querySelector('span').addEventListener('mouseleave',function () {
+      //   document.querySelector('.cursor').classList.remove('style1');
+      // })
+      
+      let em = document.querySelectorAll('.mouseCont span');
+      // for(i=0;i<em.length;i++){
+      //   em[i].style.color='red'
+      // }
+
+      //forEach : 배열안에 들어있는 각각의 요소에 적용 
+      em.forEach(function (elem) {
+        elem.addEventListener('mouseenter', () => {
+          document.querySelector('.cursor').classList.add('style1')
+        });
+        elem.addEventListener('mouseleave', () => {
+          document.querySelector('.cursor').classList.remove('style1')
+        });
+      })
+
+    })
+  </script>
+</body>
+
+</html>

@@ -21,7 +21,8 @@
       position: absolute;
       width: 100%;
       background: yellowgreen;
-      margin: 0;padding: 0;
+      margin: 0;
+      padding: 0;
     }
 
     .slide {
@@ -34,9 +35,10 @@
       text-align: center;
       overflow: hidden;
       background: yellow;
-      margin: 0;padding: 0;
+      margin: 0;
+      padding: 0;
     }
-      
+
     .slide.animated {
       transition: left .3s ease-in;
     }
@@ -78,7 +80,8 @@
   <div class="container01">
     <ul id="slider">
       <li class="slide">
-        11111Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi laboriosam corrupti
+        11111Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis asperiores ex veniam animi laboriosam
+        corrupti
         aliquam aperiam nihil? Beatae adipisci ducimus culpa nam laboriosam perspiciatis eveniet dolorum officia
         accusantium doloribus.
       </li>
@@ -141,7 +144,7 @@
       currentIdex = idx;
 
       // uptadeNav() 버튼사라지게하려면 호출
-   }
+    }
 
 
     //버튼을 클릭하면 슬라이드 이동시키기 한쪽으로만 이동 
@@ -157,38 +160,37 @@
     //버튼을 클릭하면 슬라이드 이동시키기 처음과 끝을 연결
     navPrev.addEventListener('click', function (ev) {
       ev.preventDefault();
-      if(currentIdex > 0){
+      if (currentIdex > 0) {
         goToSlide(currentIdex - 1);
-      }else{
-        goToSlide(slideCount -1);
+      } else {
+        goToSlide(slideCount - 1);
       }
     });
     navNext.addEventListener('click', function (ev) {
       ev.preventDefault();
-      if(currentIdex < slideCount -1){
+      if (currentIdex < slideCount - 1) {
         goToSlide(currentIdex + 1);
-      }else{
+      } else {
         goToSlide(0);
       }
     });
 
     // 처음과 끝 슬라이드에서 버튼에 클래스 붙여서 사라지게 하는 함수
     function uptadeNav() {
-      if(currentIdex == 0) {
+      if (currentIdex == 0) {
         navPrev.classList.add('disabled');
-      }else{
+      } else {
         navPrev.classList.remove('disabled');
       }
-      if(currentIdex == slideCount -1) {
+      if (currentIdex == slideCount - 1) {
         navNext.classList.add('disabled');
-      }else{
+      } else {
         navNext.classList.remove('disabled');
       }
     }
 
     //첫번째 슬라이드를 보이게 함수를 호출해서 첫화면에서 prev 버튼이 안보이게 한다
     goToSlide(0);
-
   </script>
 
 
