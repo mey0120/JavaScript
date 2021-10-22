@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭</title>
+  <style>
+    #contents {
+      margin: 0;
+    }
+
+    #footer {
+      margin: 0;
+    }
+
+    .container_title {
+      display: none;
+    }
+
+    .ctt_admin {
+      display: none;
+    }
+
+    .container01 {
+      background: #ddd;
+      height: auto;
+    }
+
+    #contents .wrap {
+      width: 100%;
+    }
+
+    /* .slider{width: 1200px;margin: 0 auto; padding: 100px 0;} */
+    .slider {
+      width: 100%;
+    }
+
+    .slider .slide {
+      width: 100%;
+      position: relative;
+      height: 800px;
+      overflow: hidden;
+    }
+
+    .slider .slide>img {
+      width: 100%;
+    }
+
+    /* .slider .slide:nth-child(1){background:url(/img/room_1_img01.jpg)no-repeat center/cover;} */
+    .slider .slide .cont {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 0 0 100px;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .slider .slide .title {
+      margin-bottom: 130px;
+      color: #fff;
+    }
+
+    .slider .slide .title h3 {
+      font-size: 50px;
+      font-weight: 600;
+      text-shadow: 2px 2px 7px rgba(7, 3, 1, 0.66);
+    }
+
+    .slider .slide .title p {
+      font-size: 40px;
+      font-weight: 400;
+      text-shadow: 2px 2px 7px rgba(7, 3, 1, 0.66);
+    }
+
+    .room_1 .info_box {
+      width: 1200px;
+      height: auto;
+      background-color: #fff;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      box-shadow: 3px 4px 10px 5px rgba(173, 173, 173, 0.61);
+      position: absolute;
+      display: none;
+    }
+
+    .room_1 .info_box.box1 {
+      display: block;
+    }
+
+    .room_1 .info_box.box2 {
+      background: yellow;
+    }
+
+    .room_1 .info_box.box3 {
+      background: greenyellow;
+    }
+
+    .room_1 .info_box.box4 {
+      background: blueviolet;
+    }
+
+    .room_1 .info_box .img_box {
+      width: 552px;
+      height: 194px;
+      background: pink;
+      box-shadow: 0px 2px 8px #ddd;
+    }
+
+    .room_1 .info_box ul {
+      width: 50%;
+    }
+
+    .room_1 .info_box ul li {
+      display: flex;
+    }
+
+    .room_1 .info_box ul li h4 {
+      font-size: 15px;
+      margin-right: 2px;
+      display: flex;
+      align-items: center;
+    }
+
+    .room_1 .info_box ul li p {
+      width: 450px;
+      font-size: 15px;
+      padding-top: 3px;
+      width: 490px;
+    }
+
+    .room_1_btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .room_1_btn .l_btn {
+      float: left;
+      margin-left: 20px;
+    }
+
+    .room_1_btn .l_btn a {
+      display: block;
+      padding: 0 20px;
+      font-size: 15px;
+      border: 2px solid #fff;
+      background-color: transparent;
+      color: #fff;
+      line-height: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* .room_1_btn li:nth-child(1) a {
+      background-color: #fda100;
+      border: 2px solid #fda100;
+    } */
+
+    .room_1_btn li.on a {
+      background-color: #fda100;
+      border: 2px solid #fda100;
+    }
+
+    .room_1_btn div:hover a {
+      background-color: #fda100;
+      border: 2px solid #fda100;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="sub_page room_1">
+    <div class="sub_cont_box" id="room">
+      <div class="container01">
+        <ul class="slider">
+          <li class="slide">
+            <img src="" alt="">
+            <div class="cont">
+              <div class="title">
+                <h3>바다쪽 온돌방</h3>
+                <p>201호</p>
+              </div>
+              <div class="info_box box1" id="tab1">
+                <div class="img_box">
+                  <img src="" alt="">
+                </div>
+                <ul>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>인원 : </h4>
+                    <p> 기준인원 4명/ 추가 2명가능 / 최대 6명</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>실내여건 : </h4>
+                    <p> 대형거실 겸 주방1 (방으로 사용가능), 온돌큰방 1실, 욕실겸화장실 1실</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>취사시설 : </h4>
+                    <p> 싱크대는 완비되어 있습니다만 취사도구,
+                      휴대용 가스렌지(부르스타), 코넬 등 식기류 준비요망 합니다.
+                      주차시설은 넉넉하여 걱정을 안하셔도 됩니다.
+                      취사도구 없이 오시면 주변의 식당을 이용하실 수도 있습니다.
+                    </p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>편의시설 : </h4>
+                    <p> 기름보일러, TV(케이블), 냉장고, 에어컨, 선풍기, 신발장, 화장지,
+                      수세미, 퐁퐁, 수건, 비누, 치약 등은 구비되어 있습니다. (샴푸준비요망)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="info_box box2" id="tab2">
+                <div class="img_box">
+                  <img src="" alt="">
+                </div>
+                <ul>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>인원 : </h4>
+                    <p> 기준인원 4명/ 추가 2명가능 / 최대 6명</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>실내여건 : </h4>
+                    <p> 대형거실 겸 주방1 (방으로 사용가능), 온돌큰방 1실, 욕실겸화장실 1실</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>취사시설 : </h4>
+                    <p> 싱크대는 완비되어 있습니다만 취사도구,
+                      휴대용 가스렌지(부르스타), 코넬 등 식기류 준비요망 합니다.
+                      주차시설은 넉넉하여 걱정을 안하셔도 됩니다.
+                      취사도구 없이 오시면 주변의 식당을 이용하실 수도 있습니다.
+                    </p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>편의시설 : </h4>
+                    <p> 기름보일러, TV(케이블), 냉장고, 에어컨, 선풍기, 신발장, 화장지,
+                      수세미, 퐁퐁, 수건, 비누, 치약 등은 구비되어 있습니다. (샴푸준비요망)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="info_box box3" id="tab3">
+                <div class="img_box">
+                  <img src="" alt="">
+                </div>
+                <ul>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>인원 : </h4>
+                    <p> 기준인원 4명/ 추가 2명가능 / 최대 6명</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>실내여건 : </h4>
+                    <p> 대형거실 겸 주방1 (방으로 사용가능), 온돌큰방 1실, 욕실겸화장실 1실</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>취사시설 : </h4>
+                    <p> 싱크대는 완비되어 있습니다만 취사도구,
+                      휴대용 가스렌지(부르스타), 코넬 등 식기류 준비요망 합니다.
+                      주차시설은 넉넉하여 걱정을 안하셔도 됩니다.
+                      취사도구 없이 오시면 주변의 식당을 이용하실 수도 있습니다.
+                    </p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>편의시설 : </h4>
+                    <p> 기름보일러, TV(케이블), 냉장고, 에어컨, 선풍기, 신발장, 화장지,
+                      수세미, 퐁퐁, 수건, 비누, 치약 등은 구비되어 있습니다. (샴푸준비요망)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="info_box box4" id="tab4">
+                <div class="img_box">
+                  <img src="" alt="">
+                </div>
+                <ul>
+                  <li>
+                    <h4><span class="icon"><img src=" alt=""></span>인원 : </h4>
+                    <p> 기준인원 4명/ 추가 2명가능 / 최대 6명</p>
+                  </li>
+                  <li>
+                    <h4><span class=" icon"><img src="" alt=""></span>실내여건 : </h4>
+                    <p> 대형거실 겸 주방1 (방으로 사용가능), 온돌큰방 1실, 욕실겸화장실 1실</p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>취사시설 : </h4>
+                    <p> 싱크대는 완비되어 있습니다만 취사도구,
+                      휴대용 가스렌지(부르스타), 코넬 등 식기류 준비요망 합니다.
+                      주차시설은 넉넉하여 걱정을 안하셔도 됩니다.
+                      취사도구 없이 오시면 주변의 식당을 이용하실 수도 있습니다.
+                    </p>
+                  </li>
+                  <li>
+                    <h4><span class="icon"><img src="" alt=""></span>편의시설 : </h4>
+                    <p> 기름보일러, TV(케이블), 냉장고, 에어컨, 선풍기, 신발장, 화장지,
+                      수세미, 퐁퐁, 수건, 비누, 치약 등은 구비되어 있습니다. (샴푸준비요망)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <ul class="room_1_btn">
+              <li class="on l_btn">
+                <a href="#tab1" class="r_btn">객실정보</a>
+              </li>
+              <li class="l_btn">
+                <a href="#tab2" class="r_btn">예약안내</a>
+              </li>
+              <li class="l_btn">
+                <a href="#tab3" class="r_btn"> 이용요금</a>
+              </li>
+              <li class="l_btn">
+                <a href="#tab4" class="r_btn">환불안내</a>
+              </li>
+              <div class="l_btn">
+                <a href="" class="r_btn5">실시간예약하기</a>
+              </div>
+            </ul>
+          </li>
+        </ul>
+        <!-- <a href="#" id="prev">prev </a>
+                <a href="#" id="next">next</a> -->
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    const btnList = document.querySelectorAll('.room_1_btn li');
+    const contents = document.querySelectorAll('.info_box');
+    let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+
+    // for(i=0;i<btnList.length;i++){
+    //   btnList[i].classList.remove('on')
+    // }
+
+    // document.querySelector('.r_btn1').addEventListener('click',function(){
+    //   document.querySelector('.room_1_btn li').classList.remove('on');
+    //   document.querySelector('.info_box.box2').style.display='none';
+    //   document.querySelector('.info_box.box3').style.display='none';
+    //   document.querySelector('.info_box.box4').style.display='none';
+    //   document.querySelector('.info_box').style.display='block';
+    // });
+
+    // document.querySelector('.r_btn2').addEventListener('click',function(){
+    //   document.querySelector('.info_box').style.display='none';
+    //   document.querySelector('.info_box.box3').style.display='none';
+    //   document.querySelector('.info_box.box4').style.display='none';
+    //   document.querySelector('.info_box.box2').style.display='block';
+    // });
+    // document.querySelector('.r_btn3').addEventListener('click',function(){
+    //   document.querySelector('.info_box').style.display='none';
+    //   document.querySelector('.info_box.box2').style.display='none';
+    //   document.querySelector('.info_box.box4').style.display='none';
+    //   document.querySelector('.info_box.box3').style.display='block';
+    // });
+    // document.querySelector('.r_btn4').addEventListener('click',function(){
+    //   document.querySelector('.info_box').style.display='none';
+    //   document.querySelector('.info_box.box3').style.display='none';
+    //   document.querySelector('.info_box.box2').style.display='none';
+    //   document.querySelector('.info_box.box4').style.display='block';
+    // });
+
+
+    //버튼 클릭시 스타일 변경 
+    for (var i = 0; i < btnList.length; i++) {
+      btnList[i].querySelector('.r_btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        for (var j = 0; j < btnList.length; j++) {
+          // 나머지 버튼 클래스 제거
+          btnList[j].classList.remove('on');
+          // 나머지 컨텐츠 display:none 처리
+          contents[j].style.display = 'none';
+        }
+        //버튼 클래스 추가
+        this.parentNode.classList.add('on');
+
+        // a태그의 href 값을 받아와 해당하는 id값을 가진 컨텐츠를 보여준다.
+        activeCont = this.getAttribute('href');
+        document.querySelector(activeCont).style.display = 'block';
+      })
+    }
+  </script>
+</body>
+
+</html>
